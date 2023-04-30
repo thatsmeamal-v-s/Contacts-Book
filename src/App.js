@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contacts from "./Components/Contacts/Contacts";
 import AddContact from "./Components/AddContact/AddContact";
+import EditContact from "./Components/EditContact/EditContact";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
 
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Contacts />}></Route>
               <Route path="/createcontact" element={<AddContact />}></Route>
+              <Route path="/editcontact" element={<EditContact />}></Route>
             </Routes>
           </BrowserRouter>
         </div>

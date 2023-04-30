@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 const Contacts = () => {
   const navigate = useNavigate();
   const contacts = useSelector((state) => state.contact);
-
   const createContact = () => {
     navigate("/createcontact");
   };
@@ -26,6 +25,8 @@ const Contacts = () => {
         {contacts.map((contact) => {
           return (
             <ContactCard
+              key={contact.id}
+              id={contact.id}
               firstName={contact.firstName}
               lastName={contact.lastName}
               status={contact.status}
