@@ -3,9 +3,11 @@ import "./Contacts.css";
 import ContactCard from "../ContactCard/ContactCard";
 import Button from "../../Elements/Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Contacts = () => {
   const navigate = useNavigate();
+  const contacts = useSelector((state) => state.contact);
 
   const createContact = () => {
     navigate("/createcontact");
@@ -21,9 +23,15 @@ const Contacts = () => {
         />
       </div>
       <div className="card-container">
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
+        {contacts.map((contact) => {
+          return (
+            <ContactCard
+              firstName={contact.firstName}
+              lastName={contact.lastName}
+              status={contact.status}
+            />
+          );
+        })}
       </div>
     </>
   );
