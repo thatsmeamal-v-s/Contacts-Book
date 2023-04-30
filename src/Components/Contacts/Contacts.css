@@ -1,0 +1,23 @@
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 15px;
+  column-gap: 8px;
+}
+
+.create-contact {
+  text-align: center;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}
