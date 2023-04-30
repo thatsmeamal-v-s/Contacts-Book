@@ -34,6 +34,13 @@ const Contacts = () => {
           );
         })}
       </div>
+
+      {!contacts.length && (
+        <div className="empty-list">
+          <p>No Contacts Found</p>
+          <p>Please add contacts using Create Contact button</p>
+        </div>
+      )}
     </>
   );
 };

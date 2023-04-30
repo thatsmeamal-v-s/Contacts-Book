@@ -20,7 +20,15 @@ const ContactCard = (props) => {
 
   return (
     <div className="contact-card">
-      <div className="card">
+      <div
+        className="card"
+        style={
+          {
+            // boxShadow: status === "inactive" ? "none" : "",
+            // backgroundColor: status === "inactive" ? "#ffe6e6" : "",
+          }
+        }
+      >
         <p>{firstName}</p>
         <p>{lastName}</p>
         <span>{status}</span>
