@@ -2,12 +2,15 @@ import React from "react";
 import "./Contacts.css";
 import ContactCard from "../ContactCard/ContactCard";
 import Button from "../../Elements/Button/Button";
-import AddContact from "../AddContact/AddContact";
+import { useNavigate } from "react-router-dom";
 
 const Contacts = () => {
-  let createContact = () => {
-    alert("its working");
+  const navigate = useNavigate();
+
+  const createContact = () => {
+    navigate("/createcontact");
   };
+
   return (
     <>
       <div className="create-contact">
@@ -17,7 +20,6 @@ const Contacts = () => {
           onClick={createContact}
         />
       </div>
-      <AddContact />
       <div className="card-container">
         <ContactCard />
         <ContactCard />
