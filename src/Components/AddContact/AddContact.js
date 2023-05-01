@@ -28,10 +28,10 @@ const AddContact = () => {
       dispatch(
         addContact({ firstName: firstName, lastName: lastName, status: status })
       );
+      navigate("/");
     } else {
       alert("One or more values missing");
     }
-    navigate("/");
   };
 
   return (

@@ -34,10 +34,10 @@ const EditContact = (props) => {
           status: status,
         })
       );
+      navigate("/");
     } else {
       alert("One or more values missing");
     }
-    navigate("/");
   };
 
   return (
