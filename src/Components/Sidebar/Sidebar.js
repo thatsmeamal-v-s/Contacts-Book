@@ -1,5 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -7,10 +8,13 @@ const Sidebar = () => {
       <div>
         <ul>
           <li>
-            <label style={{ fontWeight: "500" }}>Contacts</label>
+            <Link to="/">Contacts</Link>
           </li>
           <li>
-            <label style={{ fontWeight: "500" }}>Charts and Graphs</label>
+            <Link to="/charts">Charts</Link>
+          </li>
+          <li>
+            <Link to="/graphs">Graphs</Link>
           </li>
         </ul>
       </div>
