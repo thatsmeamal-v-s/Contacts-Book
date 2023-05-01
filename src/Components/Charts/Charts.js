@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,34 +14,19 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 const Charts = () => {
-  // const getFacts = async () => {
-  //   const res = await axios(
-  //     "https://disease.sh/v3/covid-19/historical/all?lastdays=all"
-  //   );
-  //   let abc = await res.json();
-  //   console.log(abc);
-  //   return res.json();
-  // };
+  const getFacts = async () => {
+    const res = await axios(
+      "https://disease.sh/v3/covid-19/historical/all?lastdays=all"
+    );
+    return res.data;
+  };
 
-  // const result = useQuery("randomFacts", getFacts);
-  // const [cases, setCases] = useState(result);
-  // console.log(result);
-
-  const [cases, setCases] = useState();
-  const [deaths, setDeaths] = useState();
-  const [recovered, setRecovered] = useState();
-
-  useEffect(() => {
-    const getFacts = async () => {
-      const res = await axios(
-        "https://disease.sh/v3/covid-19/historical/all?lastdays=all"
-      );
-      setCases(res.data.cases);
-      setDeaths(res.data.deaths);
-      setRecovered(res.data.recovered);
-    };
-    getFacts();
-  }, []);
+  const result = useQuery({
+    queryKey: "randomFacts",
+    queryFn: getFacts,
+    initialData: {},
+  });
+  console.log(result);
 
   ChartJS.register(
     CategoryScale,
@@ -74,28 +59,36 @@ const Charts = () => {
     datasets: [
       {
         label: "Cases",
-        data: cases,
+        data: Object.keys(result).length !== 0 ? result.data.cases : [],
         borderColor: "#0086b3",
         backgroundColor: "#000000",
       },
       {
         label: "Deaths",
-        data: deaths,
+        data: Object.keys(result).length !== 0 ? result.data.deaths : [],
         borderColor: "#ff1a1a",
         backgroundColor: "#000000",
       },
       {
         label: "Recovered",
-        data: recovered,
+        data: Object.keys(result).length !== 0 ? result.data.recovered : [],
         borderColor: "#4dff4d",
         backgroundColor: "#000000",
       },
     ],
   };
 
+  if (result.isError) {
+    return <div>Error! {result.error.message}</div>;
+  }
+
   return (
     <>
-      <Line options={options} data={data} />
+      {result.isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <Line options={options} data={data} />
+      )}
     </>
   );
 };
