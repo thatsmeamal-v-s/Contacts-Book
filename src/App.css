@@ -8,7 +8,6 @@
   padding: 30px 15px 25px 15px;
   background-color: #ffffff;
   border-radius: 10px;
-  height: fit-content;
   width: 20%;
 }
 
@@ -36,6 +35,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    min-height: 5vh;
   }
 
   .contacts-container {
