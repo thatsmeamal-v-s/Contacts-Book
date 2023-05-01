@@ -6,6 +6,7 @@ import EditContact from "./Components/EditContact/EditContact";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Charts from "./Components/Charts/Charts";
+import Maps from "./Components/Maps/Maps";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/createcontact" element={<AddContact />}></Route>
               <Route path="/editcontact" element={<EditContact />}></Route>
               <Route path="/charts" element={<Charts />}></Route>
+              <Route path="/maps" element={<Maps />}></Route>
             </Routes>
           </div>
         </div>

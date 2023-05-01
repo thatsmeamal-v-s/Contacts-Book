@@ -14,7 +14,7 @@ const Sidebar = () => {
             <Link to="/charts">Charts</Link>
           </li>
           <li>
-            <Link to="/graphs">Graphs</Link>
+            <Link to="/maps">Maps</Link>
           </li>
         </ul>
       </div>

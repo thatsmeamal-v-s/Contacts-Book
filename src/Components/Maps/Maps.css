@@ -1,0 +1,10 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+.country {
+  text-align: center;
+  font-weight: 600;
+}
