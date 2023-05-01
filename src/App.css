@@ -22,3 +22,23 @@
 .contacts-container button {
   text-align: center;
 }
+
+@media screen and (max-width: 500px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contacts-container {
+    width: 100%;
+  }
+}
