@@ -19,10 +19,10 @@ li a {
 
 li a:hover {
   background-color: #99c2ff;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
 }
 
-li a:active {
-  background-color: #000;
+.is-active {
+  border: 1px solid #000000;
 }
